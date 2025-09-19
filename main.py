@@ -53,12 +53,11 @@ def getImage(url):
     #this can stop the pictures that dont work and only produce a picture with an actual picture
     if(imageRequest.status_code!=200):
         getContent()
-    with open("image.png","wb") as image:
-        image.write(imageRequest.content)
-        image.close()
-    im = Image.open("image.png")
-    im.show()
-    
+    else:
+        with open("image.png","wb") as image:
+            image.write(imageRequest.content)
+            im = Image.open("image.png")
+            im.show()
 
 if __name__ == "__main__":
     getContent()
